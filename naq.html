@@ -1,0 +1,193 @@
+<!-- Contenitore questionario -->
+<div id="naq-container" style="max-width:700px; margin:auto; font-family:Arial,sans-serif; display:none; padding:20px; box-sizing:border-box;">
+  <h2 style="text-align:center;">Questionario NAQ</h2>
+
+  <div id="progress" style="margin-bottom:15px; font-weight:bold;">Domanda 1 di 25</div>
+
+  <p style="font-size:14px; color:#555;">
+    Questo questionario è completamente anonimo. Nessun dato personale o risposta verrà salvata. 
+    I risultati vengono mostrati solo al termine della compilazione e hanno scopo indicativo. 
+    La parte femminile è opzionale: puoi scegliere se proseguirla o terminare il questionario standard.
+  </p>
+
+  <!-- FORM STANDARD -->
+  <form id="naq-form">
+    <!-- BLOCCO 1: Attitudine e Visione -->
+    <h3>BLOCCO 1: Attitudine e Visione</h3>
+    <div class="question">
+      <label>1. Come reagisci davanti a un fallimento?</label><br>
+      <select required>
+        <option value="">Seleziona</option>
+        <option value="1">Mi deprimo e mollo tutto</option>
+        <option value="2">Rifletto e riprovo</option>
+        <option value="3">Cerco colpe esterne</option>
+        <option value="4">Lo trasformo in esperienza utile</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>2. Quanto ti senti responsabile del tuo destino?</label><br>
+      <select required>
+        <option value="">Seleziona</option>
+        <option value="1">1-3 (Bassa responsabilità)</option>
+        <option value="2">4-6 (Responsabilità media)</option>
+        <option value="3">7-8 (Alta responsabilità)</option>
+        <option value="4">9-10 (Molto alta responsabilità)</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>3. Quanto spesso ti senti motivato a migliorare anche quando le cose vanno bene?</label><br>
+      <select required>
+        <option value="">Seleziona</option>
+        <option value="1">Mai</option>
+        <option value="2">Raramente</option>
+        <option value="3">Spesso</option>
+        <option value="4">Sempre</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>4. Quanto ti senti capace di gestire lo stress?</label><br>
+      <select required>
+        <option value="">Seleziona</option>
+        <option value="1">Poco (1-3)</option>
+        <option value="2">Abbastanza (4-6)</option>
+        <option value="3">Bene (7-8)</option>
+        <option value="4">Molto bene (9-10)</option>
+      </select>
+    </div>
+
+    <!-- BLOCCO 2: Autenticità e Cambiamento -->
+    <h3>BLOCCO 2: Autenticità e Cambiamento</h3>
+    <div class="question">
+      <label>5. Come reagisci a un feedback critico?</label><br>
+      <select required>
+        <option value="">Seleziona</option>
+        <option value="1">Lo ignoro</option>
+        <option value="2">Lo valuto ma non cambio</option>
+        <option value="3">Lo uso per migliorare</option>
+        <option value="4">Lo accolgo con gratitudine</option>
+      </select>
+    </div>
+
+    <!-- Continuare con tutte le domande fino alla 25 seguendo lo stesso schema -->
+
+    <button type="submit" style="margin-top:20px; padding:12px 25px; background-color:#0077cc; color:white; border:none; border-radius:5px; cursor:pointer; font-size:16px; transition:0.3s;">Prosegui</button>
+  </form>
+
+  <!-- Scelta modulo femminile -->
+  <div id="ask-female" style="display:none; margin-top:20px; text-align:center;">
+    <p style="font-weight:bold; color:#0077cc;">
+      Sei donna e vuoi scoprire il tuo profilo di leadership? 
+    </p>
+    <p style="font-style:italic; color:#555;">“Scopri il tuo potenziale unico: la tua forza e leadership possono guidare e ispirare il mondo.”</p>
+    <button id="yes-female" style="padding:10px 20px; margin-right:10px; background-color:#28a745; color:white; border:none; border-radius:5px; cursor:pointer; transition:0.3s;">Sì, proseguo</button>
+    <button id="no-female" style="padding:10px 20px; background-color:#dc3545; color:white; border:none; border-radius:5px; cursor:pointer; transition:0.3s;">No, termina qui</button>
+  </div>
+
+  <!-- FORM FEMMINILE -->
+  <form id="female-form" style="display:none; margin-top:20px;">
+    <h3>Modulo Speciale Femminile</h3>
+    <!-- Inserire tutte le 30 domande femminili qui con lo stesso schema select -->
+
+    <button type="submit" style="margin-top:20px; padding:12px 25px; background-color:#0077cc; color:white; border:none; border-radius:5px; cursor:pointer; font-size:16px; transition:0.3s;">Vedi risultato finale</button>
+  </form>
+
+  <!-- Risultato finale -->
+  <div id="naq-result" style="display:none; margin-top:20px; font-size:18px; font-weight:bold; padding:15px; border-radius:10px;"></div>
+</div>
+
+<!-- POPUP LEGALE ALL’APERTURA -->
+<div id="legal-popup" style="position:fixed; top:0; left:0; width:100%; height:100%; 
+  background-color:rgba(0,0,0,0.8); color:#fff; display:flex; justify-content:center; align-items:center; z-index:9999; padding:20px; box-sizing:border-box;">
+  <div style="background:#fff; color:#000; padding:30px; max-width:600px; border-radius:10px; text-align:left;">
+    <h3>Informativa Legale – Questionario NAQ</h3>
+    <p>Benvenuto/a! Questo questionario è completamente anonimo.<br>
+       Nessun dato personale o risposta verrà salvata.<br>
+       I risultati sono mostrati solo al termine della compilazione e hanno scopo indicativo.<br>
+       La parte femminile è opzionale.</p>
+    <p style="font-weight:bold;">Per proseguire, clicca "Accetto".</p>
+    <button id="accept-legal" style="padding:10px 20px; margin-top:10px; cursor:pointer;">Accetto</button>
+  </div>
+</div>
+
+<script>
+const form = document.getElementById('naq-form');
+const femaleForm = document.getElementById('female-form');
+const resultDiv = document.getElementById('naq-result');
+const askFemale = document.getElementById('ask-female');
+const yesFemale = document.getElementById('yes-female');
+const noFemale = document.getElementById('no-female');
+const legalPopup = document.getElementById('legal-popup');
+const container = document.getElementById('naq-container');
+const progress = document.getElementById('progress');
+
+let currentQuestion = 0;
+const totalQuestions = 25; // Aggiornare quando tutte le domande sono inserite
+const femaleTotalQuestions = 30; // Aggiornare per tutte le domande femminili
+
+document.getElementById('accept-legal').addEventListener('click', function(){
+    legalPopup.style.display = 'none';
+    container.style.display = 'block';
+});
+
+// Aggiornamento barra progresso
+form.addEventListener('change', function(e){
+    currentQuestion = Array.from(form.querySelectorAll('select')).filter(sel => sel.value).length;
+    progress.textContent = `Domanda ${currentQuestion} di ${totalQuestions}`;
+});
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const answers = Array.from(form.querySelectorAll('select')).map(sel => parseInt(sel.value));
+  const score = answers.reduce((a,b)=>a+b,0);
+  form.dataset.score = score;
+  form.style.display = 'none';
+  askFemale.style.display = 'block';
+});
+
+yesFemale.addEventListener('click', function(){
+  askFemale.style.display = 'none';
+  femaleForm.style.display = 'block';
+});
+
+noFemale.addEventListener('click', function(){
+  askFemale.style.display = 'none';
+  const score = parseInt(form.dataset.score);
+  displayResult(score, false); // false = uomo
+});
+
+femaleForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  const femaleAnswers = Array.from(femaleForm.querySelectorAll('select')).map(sel=>parseInt(sel.value));
+  const femaleScore = femaleAnswers.reduce((a,b)=>a+b,0);
+  const totalScore = parseInt(form.dataset.score) + femaleScore;
+  femaleForm.style.display = 'none';
+  displayResult(totalScore, true); // true = donna
+});
+
+// Funzione per mostrare risultati
+function displayResult(score, isFemale){
+  let text = "";
+  let color = "#000";
+  if(!isFemale){
+    // Risultati uomini
+    if(score <= 49){ text="Fascia 1: Esclusione - Profilo incoerente, sabotante o non pronto"; color="#dc3545"; }
+    else if(score <=64){ text="Fascia 2: Influenzato - Profilo fragile, condizionato, da orientare"; color="#ffc107"; }
+    else if(score <=79){ text="Fascia 3: Positivo ma bloccato - Valori buoni, ma segnali di fatica o ambiente sbagliato"; color="#28a745"; }
+    else{ text="Fascia 4: Leader coraggioso - Profilo forte, autentico, coerente e leale"; color="#0077cc"; }
+  } else {
+    // Risultati donne
+    if(score < 50){ text="Fascia 1 – Esclusione dal progetto\nSegnali principali: Risposte passive, contraddittorie o auto-sabotanti. Deresponsabilizzazione o atteggiamento vittimistico. Mancanza di visione personale e obiettivi chiari. Nessuna influenza o attitudine relazionale. Dipendenza da validazione esterna.\nInterpretazione: Profilo non adatto. Azione consigliata: esclusione o percorso preparazione personale."; color="#dc3545"; }
+    else if(score <=75){ text="Fascia 2 – Persona influenzata negativamente, con bisogno di de-waste\nSegnali principali: Potenziale presente ma bloccato da contesti sfavorevoli. Alternanza tra intuizione e insicurezza. Paura del giudizio, bisogno di approvazione. Visione non ancora strutturata. Sensibilità elevata non ancora incanalata in assertività.\nInterpretazione: Profilo fragile ma recuperabile. Azione consigliata: affiancamento iniziale, mentorship mirata."; color="#ffc107"; }
+    else if(score <=95){ text="Fascia 3 – Persona positiva in ambiente sbagliato\nSegnali principali: Visione e valori coerenti, ma sottoutilizzati. Atteggiamenti costruttivi non sempre riconosciuti nel contesto. Tendenza ad adattarsi troppo pur di restare inclusa. Buona responsabilità relazionale. Apertura al cambiamento e crescita.\nInterpretazione: Profilo promettente. Azione consigliata: inserimento diretto in progetto attivo, rafforzamento fiducia."; color="#28a745"; }
+    else{ text="Fascia 4 – Leader coraggiosa e fedele\nSegnali principali: Leadership attiva, coerenza tra pensiero, parola e azione. Capacità di affrontare conflitti. Fiducia nei propri mezzi e spirito collaborativo. Forte responsabilità personale e visione.\nInterpretazione: Profilo ideale. Azione consigliata: responsabilità immediata, incarico chiave, coinvolgimento strategico."; color="#0077cc"; }
+  }
+  resultDiv.style.display = 'block';
+  resultDiv.style.backgroundColor = color;
+  resultDiv.style.color = "#fff";
+  resultDiv.style.whiteSpace = "pre-wrap";
+  resultDiv.textContent = text;
+}
+</script>
